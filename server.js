@@ -7,7 +7,6 @@ try {
   const logger = createLogger(config)
   const server = createServer({ ...config, logger })
   await server.start()
-  server.logger.info({ origin: server.origin }, 'Started')
 } catch (err) {
   const logger = createLogger()
   logger.error({ err })
