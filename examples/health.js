@@ -10,6 +10,7 @@ export const builder = {
   }
 }
 
+// TODO: --start means it will server.start() and server.stop()
 export const handler = async ({ check, server, logger }) => {
   const res = await fetch(`${server.origin}/health`)
   const data = await res.json()
