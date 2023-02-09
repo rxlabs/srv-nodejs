@@ -4,6 +4,7 @@
     "server.js",
     "package/**/*.js",
     "examples/**/*.js",
+    "test/fixtures/**/*.js",
     "**/*.test.js",
     "**/*.spec.js",
     "ava.config.js"
