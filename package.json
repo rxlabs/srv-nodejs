@@ -65,6 +65,7 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-config-standard": "^17.0.0",
     "landlubber": "^1.0.0",
+    "nodemon": "^2.0.20",
     "prettier": "^2.3.0"
   }
 }
