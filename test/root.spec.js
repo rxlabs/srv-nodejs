@@ -8,7 +8,7 @@ test.afterEach(async (t) => {
 
 test('GET: /', async (t) => {
   const server = await getTestServer(t)
-  server.start()
+  await server.start()
   const res = await fetch(`${server.origin}/`)
   const data = await res.json()
   t.snapshot(data, 'data')
