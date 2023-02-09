@@ -1,9 +1,9 @@
-import process from 'node:process'
+import { env, exit } from 'node:process'
 
 import { createLogger, createServer, getConfig } from './index.js'
 
 try {
-  const config = await getConfig(process.env)
+  const config = await getConfig(env)
   const logger = createLogger(config)
   const server = createServer({ ...config, logger })
   await server.run()
@@ -11,5 +11,5 @@ try {
 } catch (err) {
   const logger = createLogger()
   logger.error({ err })
-  process.exit(1)
+  exit(1)
 }
