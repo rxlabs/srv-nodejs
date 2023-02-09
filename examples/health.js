@@ -15,3 +15,5 @@ export const builder = {
 export const handler = async ({ x, logger }) => {
   logger.info({ data: todo(x) }, 'TODO')
 }
+
+// TODO: health example

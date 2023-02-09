@@ -2,8 +2,9 @@
 
 import landlubber from 'landlubber'
 
-import * as todo from './todo.js'
+import * as health from './health.js'
 
-const commands = [todo]
+// TODO: middlewate for server base url
+const commands = [health]
 
 await landlubber(commands).parse()
