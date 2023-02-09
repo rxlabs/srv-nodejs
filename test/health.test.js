@@ -1,14 +1,20 @@
+import { env } from 'node:process'
+
 import test from 'ava'
 
-import { getConfig } from '../index.js'
+import { createLogger, createServer, getConfig } from '../index.js'
 
 test.beforeEach(async (t) => {
-  const { port } = await getConfig()
-  t.context.got = { port }
+  const config = await getConfig(env)
+  t.context.config = config
+  t.context.createServer = (t) =>
+    createServer({ ...config, logger: createLogger(t) })
 })
 
 test('get health', async (t) => {
-  const { got } = t.context
-  const res = await got.get('health')
-  t.snapshot(res)
+  const server = t.context.createServer(t)
+  server.run()
+  const res = await fetch(`${server.origin}/health`)
+  const data = await res.json()
+  t.snapshot(data)
 })
