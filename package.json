@@ -1,7 +1,7 @@
 {
   "name": "@rxlabs/srv-nodejs",
-  "version": "10.2.0",
-  "description": "Package skeleton for a JavaScript module.",
+  "version": "0.0.0",
+  "description": "Package skeleton for a Node.js server.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -22,8 +22,10 @@
   },
   "files": [
     "index.js",
+    "server.js",
     "lib",
-    "!**/*.spec.js"
+    "!**/*.spec.js",
+    "!**/*.test.js"
   ],
   "scripts": {
     "test": "c8 ava",
@@ -31,17 +33,29 @@
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
     "test:debug": "ava debug --break",
+    "test:system": "SYSTEM_TEST=true c8 ava",
+    "test:system:update": "SYSTEM_TEST=true ava --update-snapshots",
+    "test:system:watch": "SYSTEM_TEST=true ava --watch",
+    "test:system:debug": "SYSTEM_TEST=true ava debug --break",
     "lint": "eslint --ignore-path .gitignore --ext .js,.cjs,.mjs .",
     "prelint": "prettier --check --ignore-path .gitignore .",
     "postversion": "git push --follow-tags",
     "example": "node examples",
     "example:inspect": "node --inspect examples",
+    "server": "node server.js",
+    "start:watch": "nodemon server.js",
+    "start:inspect": "node --inspect server.js",
+    "start:inspect:watch": "nodemon --inspect server.js",
+    "start:test": "NODE_ENV=test node server.js",
+    "start:test:watch": "NODE_ENV=test nodemon server.js",
+    "start:test:inspect": "NODE_ENV=test node server.js",
+    "start:test:inspect:watch": "NODE_ENV=test nodemon --inspect server.js",
     "format": "eslint --ignore-path .gitignore --fix --ext .js,.cjs,.mjs .",
     "preformat": "prettier --write --ignore-path .gitignore .",
     "report": "c8 report"
   },
   "engines": {
-    "node": ">=16.13.0",
+    "node": ">=18.12.0",
     "npm": ">= 8.1.0"
   },
   "devDependencies": {
