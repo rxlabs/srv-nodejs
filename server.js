@@ -6,7 +6,7 @@ try {
   const config = await getConfig(env)
   const logger = createLogger(config)
   const server = createServer({ ...config, logger })
-  await server.run()
+  await server.start()
   logger.info(server.origin)
 } catch (err) {
   const logger = createLogger()
