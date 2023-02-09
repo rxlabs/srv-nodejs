@@ -7,12 +7,18 @@ export const builder = {
     type: 'string',
     default: '',
     describe: 'Health check'
+  },
+  start: {
+    type: 'boolean',
+    default: false,
+    describe: 'Start a local server for the duration of execution'
   }
 }
 
-// TODO: --start means it will server.start() and server.stop()
-export const handler = async ({ check, server, logger }) => {
+export const handler = async ({ check, server, start, logger }) => {
+  if (start) await server.start()
   const res = await fetch(`${server.origin}/health`)
   const data = await res.json()
   logger.info({ data }, check)
+  if (start) await server.stop()
 }
