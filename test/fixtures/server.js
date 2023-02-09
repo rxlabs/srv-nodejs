@@ -8,5 +8,7 @@ export const getTestServer = async (t) => {
   const PORT = env.PORT ?? (await getPort())
   const config = await getConfig({ PORT, ...env })
   const logger = createLogger({ ...config, t })
-  return createServer({ ...config, logger })
+  const server = createServer({ ...config, logger })
+  t.context.server = server
+  return server
 }
