@@ -1,8 +1,10 @@
 {
   "exclude": [
     "**/index.js",
+    "server.js",
     "package/**/*.js",
     "examples/**/*.js",
+    "**/*.test.js",
     "**/*.spec.js",
     "ava.config.js"
   ],
