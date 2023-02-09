@@ -6,5 +6,5 @@ test('GET: /', async (t) => {
   const server = await getTestServer()
   const res = await fetch(`${server.origin}/`)
   const data = await res.json()
-  t.snapshot(data, 'data')
+  t.deepEqual(data, {}, 'data')
 })
