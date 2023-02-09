@@ -1,7 +1,7 @@
 # JavaScript Module Package Skeleton
 
-[![npm](https://img.shields.io/npm/v/@makenew/jsmodule.svg)](https://www.npmjs.com/package/@makenew/jsmodule)
-[![GitHub Actions](https://github.com/makenew/jsmodule/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/jsmodule/actions/workflows/check.yml)
+[![npm](https://img.shields.io/npm/v/@makenew/srv-nodejs.svg)](https://www.npmjs.com/package/@makenew/srv-nodejs)
+[![GitHub Actions](https://github.com/makenew/srv-nodejs/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/srv-nodejs/actions/workflows/check.yml)
 
 Package skeleton for a JavaScript module.
 
@@ -46,7 +46,7 @@ Bootstrap a new JavaScript module in five minutes or less.
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the main branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:makenew/jsmodule.git <new-node-lib>
+   $ git clone --single-branch git@github.com:makenew/srv-nodejs.git <new-node-lib>
    $ cd <new-node-lib>
    ```
    Optionally, reset to the latest version with
@@ -84,7 +84,7 @@ you can fetch and merge in changes from this repository.
 Add this as a new remote with
 
 ```
-$ git remote add upstream git@github.com:makenew/jsmodule.git
+$ git remote add upstream git@github.com:makenew/srv-nodejs.git
 ```
 
 You can then fetch and merge changes with
@@ -100,14 +100,14 @@ Note that `CHANGELOG.md` is just a template for this skeleton.
 The actual changes for this project are documented in the commit history
 and summarized under [Releases].
 
-[Releases]: https://github.com/makenew/jsmodule/releases
+[Releases]: https://github.com/makenew/srv-nodejs/releases
 
 ## Installation
 
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install @makenew/jsmodule
+$ npm install @makenew/srv-nodejs
 ```
 
 [npm]: https://www.npmjs.com/
@@ -117,8 +117,8 @@ $ npm install @makenew/jsmodule
 ### Quickstart
 
 ```
-$ git clone https://github.com/makenew/jsmodule.git
-$ cd jsmodule
+$ git clone https://github.com/makenew/srv-nodejs.git
+$ cd srv-nodejs
 $ nvm install
 $ npm install
 ```
@@ -143,10 +143,10 @@ The [source code] is hosted on GitHub.
 Clone the project with
 
 ```
-$ git clone git@github.com:makenew/jsmodule.git
+$ git clone git@github.com:makenew/srv-nodejs.git
 ```
 
-[source code]: https://github.com/makenew/jsmodule
+[source code]: https://github.com/makenew/srv-nodejs
 
 ### Requirements
 
@@ -184,7 +184,7 @@ This will push a new git tag which will trigger a GitHub action.
 Publishing may be triggered using a [workflow_dispatch on GitHub Actions].
 
 [npm-version]: https://docs.npmjs.com/cli/version
-[workflow_dispatch on GitHub Actions]: https://github.com/makenew/jsmodule/actions?query=workflow%3Aversion
+[workflow_dispatch on GitHub Actions]: https://github.com/makenew/srv-nodejs/actions?query=workflow%3Aversion
 
 ## GitHub Actions
 
@@ -217,7 +217,7 @@ Please submit and comment on bug reports and feature requests.
 
 To submit a patch:
 
-1. Fork it (https://github.com/makenew/jsmodule/fork).
+1. Fork it (https://github.com/makenew/srv-nodejs/fork).
 2. Create your feature branch (`git checkout -b my-new-feature`).
 3. Make changes.
 4. Commit your changes (`git commit -am 'Add some feature'`).

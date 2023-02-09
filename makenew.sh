@@ -65,9 +65,9 @@ makenew () {
   find_replace "s/Package skeleton for a JavaScript module\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
-  find_replace "s|@makenew/jsmodule|${mk_slug}|g"
-  find_replace "s|makenew/jsmodule|${mk_user}/${mk_repo}|g"
-  find_replace "s|jsmodule|${mk_repo}|g"
+  find_replace "s|@makenew/srv-nodejs|${mk_slug}|g"
+  find_replace "s|makenew/srv-nodejs|${mk_user}/${mk_repo}|g"
+  find_replace "s|srv-nodejs|${mk_repo}|g"
 
   echo
   echo 'Replacing boilerplate.'
