@@ -1,7 +1,7 @@
-import process from 'node:process'
+import { env } from 'node:process'
 
 export default () => {
-  const ext = isTrue(process.env.SYSTEM_TEST) ? 'test' : 'spec'
+  const ext = isTrue(env.SYSTEM_TEST) ? 'test' : 'spec'
   return {
     ignoredByWatcher: ['tmp/**/*'],
     files: [`**/*.${ext}.js`, '!package/**/*']
