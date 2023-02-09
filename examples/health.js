@@ -1,19 +1,17 @@
-import { todo } from '../index.js'
+export const command = 'health [check]'
 
-export const command = 'todo x'
-
-export const describe = 'TODO'
+export const describe = 'Check health'
 
 export const builder = {
-  x: {
+  check: {
     type: 'string',
-    default: 'TODO',
-    describe: 'TODO'
+    default: '',
+    describe: 'Health check'
   }
 }
 
-export const handler = async ({ x, logger }) => {
-  logger.info({ data: todo(x) }, 'TODO')
+export const handler = async ({ check, server, logger }) => {
+  const res = await fetch(`${server.origin}/health`)
+  const data = await res.json()
+  logger.info({ data }, check)
 }
-
-// TODO: health example

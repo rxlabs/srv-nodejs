@@ -1,10 +1,21 @@
 #!/usr/bin/env node
 
-import landlubber from 'landlubber'
+import { env } from 'node:process'
+
+import landlubber, { defaultMiddleware } from 'landlubber'
+
+import { createLogger, createServer, getConfig } from '../index.js'
 
 import * as health from './health.js'
 
-// TODO: middlewate for server base url
 const commands = [health]
 
-await landlubber(commands).parse()
+const createServerContext = async (argv) => {
+  const config = await getConfig(env)
+  const logger = createLogger(config)
+  argv.server = createServer({ ...config, logger })
+}
+
+const middleware = [...defaultMiddleware, createServerContext]
+
+await landlubber(commands, { middleware }).parse()
