@@ -114,3 +114,57 @@ jobs:
         run: npm install --save ${{ steps.packages.outputs.paths }}
       - name: Run
         run: node index.js
+  containerize:
+    name: Containerize
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Docker
+        uses: ./.github/actions/setup-docker
+        with:
+          registry_domain: ghcr.io
+          registry_username: ${{ secrets.GH_USER }}
+          registry_password: ${{ secrets.GH_TOKEN }}
+      - name: Build
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm64
+          cache-from: 'type=local,src=/tmp/.buildx-cache'
+          cache-to: 'type=local,dest=/tmp/.buildx-cache'
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+  system:
+    name: Test system
+    needs: containerize
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      app:
+        image: ghcr.io/${{ github.repository }}:${{ github.sha }}
+        env:
+          NODE_ENV: test
+          PORT: 8080
+        ports:
+          - 8080:8080
+        credentials:
+          username: ${{ secrets.GH_USER }}
+          password: ${{ secrets.GH_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Test
+        run: npm run test:system
+        env:
+          PORT: 8080
+      - name: Remove CI container image
+        uses: bots-house/ghcr-delete-image-action@v1.0.1
+        if: always()
+        with:
+          owner: ${{ github.repository_owner }}
+          name: ${{ github.event.repository.name }}
+          tag: ${{ github.sha }}
+          token: ${{ secrets.GH_TOKEN }}
