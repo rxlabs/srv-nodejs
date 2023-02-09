@@ -12,6 +12,12 @@
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode"
   ],
+  "forwardPorts": [3000, 4000, 8080],
+  "portsAttributes": {
+    "8080": { "label": "App (production)" },
+    "4000": { "label": "App (test)" },
+    "3000": { "label": "App (dev)" }
+  },
   "postCreateCommand": "npm install",
   "remoteUser": "node"
 }
