@@ -135,8 +135,8 @@ jobs:
           cache-from: 'type=local,src=/tmp/.buildx-cache'
           cache-to: 'type=local,dest=/tmp/.buildx-cache'
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
-  system:
-    name: Test system
+  smoke:
+    name: Smoke test
     needs: containerize
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -157,7 +157,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Test
-        run: npm run test:system
+        run: npm run test:smoke
         env:
           PORT: 8080
       - name: Remove CI container image
