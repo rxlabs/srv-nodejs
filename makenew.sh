@@ -36,7 +36,7 @@ stage_env () {
   git branch --unset-upstream
   git remote rm origin
   echo
-  git rm -f makenew.sh
+  git rm -f rxlabs.sh
   echo
   echo 'Staging changes.'
   git add --all
@@ -45,7 +45,7 @@ stage_env () {
   echo
 }
 
-makenew () {
+rxlabs () {
   echo 'Answer all prompts.'
   echo 'There are no defaults.'
   echo 'Example values are shown in parentheses.'
@@ -65,8 +65,8 @@ makenew () {
   find_replace "s/Package skeleton for a JavaScript module\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
-  find_replace "s|@makenew/srv-nodejs|${mk_slug}|g"
-  find_replace "s|makenew/srv-nodejs|${mk_user}/${mk_repo}|g"
+  find_replace "s|@rxlabs/srv-nodejs|${mk_slug}|g"
+  find_replace "s|rxlabs/srv-nodejs|${mk_user}/${mk_repo}|g"
   find_replace "s|srv-nodejs|${mk_repo}|g"
 
   echo
@@ -74,6 +74,6 @@ makenew () {
 }
 
 check_env 'git read sed xargs'
-makenew
+rxlabs
 stage_env
 exit

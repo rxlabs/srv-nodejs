@@ -1,5 +1,5 @@
 {
-  "name": "@makenew/srv-nodejs",
+  "name": "@rxlabs/srv-nodejs",
   "version": "10.2.0",
   "description": "Package skeleton for a JavaScript module.",
   "type": "module",
@@ -12,9 +12,9 @@
   "keywords": [
     "node"
   ],
-  "homepage": "https://github.com/makenew/srv-nodejs",
-  "bugs": "https://github.com/makenew/srv-nodejs/issues",
-  "repository": "makenew/srv-nodejs",
+  "homepage": "https://github.com/rxlabs/srv-nodejs",
+  "bugs": "https://github.com/rxlabs/srv-nodejs/issues",
+  "repository": "rxlabs/srv-nodejs",
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",

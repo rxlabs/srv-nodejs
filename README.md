@@ -1,7 +1,7 @@
 # JavaScript Module Package Skeleton
 
-[![npm](https://img.shields.io/npm/v/@makenew/srv-nodejs.svg)](https://www.npmjs.com/package/@makenew/srv-nodejs)
-[![GitHub Actions](https://github.com/makenew/srv-nodejs/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/srv-nodejs/actions/workflows/check.yml)
+[![npm](https://img.shields.io/npm/v/@rxlabs/srv-nodejs.svg)](https://www.npmjs.com/package/@rxlabs/srv-nodejs)
+[![GitHub Actions](https://github.com/rxlabs/srv-nodejs/actions/workflows/check.yml/badge.svg)](https://github.com/rxlabs/srv-nodejs/actions/workflows/check.yml)
 
 Package skeleton for a JavaScript module.
 
@@ -46,7 +46,7 @@ Bootstrap a new JavaScript module in five minutes or less.
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the main branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:makenew/srv-nodejs.git <new-node-lib>
+   $ git clone --single-branch git@github.com:rxlabs/srv-nodejs.git <new-node-lib>
    $ cd <new-node-lib>
    ```
    Optionally, reset to the latest version with
@@ -55,7 +55,7 @@ Bootstrap a new JavaScript module in five minutes or less.
    ```
 3. Run
    ```
-   $ ./makenew.sh
+   $ ./rxlabs.sh
    ```
    This will replace the boilerplate, delete itself,
    remove the git remote, remove upstream tags,
@@ -64,7 +64,7 @@ Bootstrap a new JavaScript module in five minutes or less.
 5. Review, commit, and push the changes to GitHub with
    ```
    $ git diff --cached
-   $ git commit -m "Replace makenew boilerplate"
+   $ git commit -m "Replace rxlabs boilerplate"
    $ git remote add origin git@github.com:<user>/<new-node-lib>.git
    $ git push -u origin main
    ```
@@ -84,7 +84,7 @@ you can fetch and merge in changes from this repository.
 Add this as a new remote with
 
 ```
-$ git remote add upstream git@github.com:makenew/srv-nodejs.git
+$ git remote add upstream git@github.com:rxlabs/srv-nodejs.git
 ```
 
 You can then fetch and merge changes with
@@ -100,14 +100,14 @@ Note that `CHANGELOG.md` is just a template for this skeleton.
 The actual changes for this project are documented in the commit history
 and summarized under [Releases].
 
-[Releases]: https://github.com/makenew/srv-nodejs/releases
+[Releases]: https://github.com/rxlabs/srv-nodejs/releases
 
 ## Installation
 
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install @makenew/srv-nodejs
+$ npm install @rxlabs/srv-nodejs
 ```
 
 [npm]: https://www.npmjs.com/
@@ -117,7 +117,7 @@ $ npm install @makenew/srv-nodejs
 ### Quickstart
 
 ```
-$ git clone https://github.com/makenew/srv-nodejs.git
+$ git clone https://github.com/rxlabs/srv-nodejs.git
 $ cd srv-nodejs
 $ nvm install
 $ npm install
@@ -143,10 +143,10 @@ The [source code] is hosted on GitHub.
 Clone the project with
 
 ```
-$ git clone git@github.com:makenew/srv-nodejs.git
+$ git clone git@github.com:rxlabs/srv-nodejs.git
 ```
 
-[source code]: https://github.com/makenew/srv-nodejs
+[source code]: https://github.com/rxlabs/srv-nodejs
 
 ### Requirements
 
@@ -184,7 +184,7 @@ This will push a new git tag which will trigger a GitHub action.
 Publishing may be triggered using a [workflow_dispatch on GitHub Actions].
 
 [npm-version]: https://docs.npmjs.com/cli/version
-[workflow_dispatch on GitHub Actions]: https://github.com/makenew/srv-nodejs/actions?query=workflow%3Aversion
+[workflow_dispatch on GitHub Actions]: https://github.com/rxlabs/srv-nodejs/actions?query=workflow%3Aversion
 
 ## GitHub Actions
 
@@ -217,7 +217,7 @@ Please submit and comment on bug reports and feature requests.
 
 To submit a patch:
 
-1. Fork it (https://github.com/makenew/srv-nodejs/fork).
+1. Fork it (https://github.com/rxlabs/srv-nodejs/fork).
 2. Create your feature branch (`git checkout -b my-new-feature`).
 3. Make changes.
 4. Commit your changes (`git commit -am 'Add some feature'`).
