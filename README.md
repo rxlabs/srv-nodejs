@@ -126,9 +126,7 @@ To run locally, add configuration to `config/local.json`,
 then pull and run the image with
 
 ```
-$ docker run --read-only --init --publish 8080:8080 \
-  --volume "$(pwd)/config/local.json:/usr/src/app/config/local.json" \
-  ghcr.io/rxlabs/srv-nodejs
+$ docker run --init --read-only --publish 8080:8080 ghcr.io/rxlabs/srv-nodejs
 ```
 
 ### Configuration
@@ -286,7 +284,7 @@ These must be set manually.
 
 The version and format GitHub actions
 require a user with write access to the repository
-including access to read and write packages.
+including access to read, write, and delete packages.
 Set these additional secrets to enable the action:
 
 - `GH_TOKEN`: A personal access token for the user.
