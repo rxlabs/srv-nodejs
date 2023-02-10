@@ -1,11 +1,8 @@
 import { argv, env } from 'node:process'
 
-import { getPort } from './lib/config.js'
-
 export default () => {
-  env.NODE_ENV = 'test'
   const isSmokeTest = argv.includes('--smoke')
-  if (isSmokeTest) env.PORT ??= getPort(env)
+  if (isSmokeTest) env.NODE_ENV = 'test'
   const ext = isSmokeTest ? 'test' : 'spec'
   return {
     ignoredByWatcher: ['tmp/**/*'],
