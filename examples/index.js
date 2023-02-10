@@ -13,7 +13,7 @@ const commands = [health]
 const createServerContext = async (argv) => {
   const config = await getConfig(env)
   const logger = createLogger(config)
-  argv.server = createServer({ ...config, logger })
+  argv.server = createServer({ config, logger })
 }
 
 const middleware = [...defaultMiddleware, createServerContext]

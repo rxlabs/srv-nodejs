@@ -8,7 +8,7 @@ try {
   if (argv.includes('--test')) env.NODE_ENV = 'test'
   const config = await getConfig(env)
   const logger = createLogger(config)
-  const server = createServer({ ...config, logger })
+  const server = createServer({ config, logger })
   await server.start()
 } catch (err) {
   const logger = createLogger()
