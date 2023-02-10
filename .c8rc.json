@@ -1,6 +1,7 @@
 {
   "exclude": [
     "**/index.js",
+    "server.js",
     "package/**/*.js",
     "examples/**/*.js",
     "test/fixtures/**/*.js",
