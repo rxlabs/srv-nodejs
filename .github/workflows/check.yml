@@ -125,8 +125,7 @@ jobs:
     services:
       app:
         image: ghcr.io/${{ github.repository }}:${{ github.sha }}
-        options:
-          init: true
+        options: '--init'
         env:
           NODE_ENV: test
           PORT: 8080
