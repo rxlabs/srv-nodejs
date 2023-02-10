@@ -125,13 +125,11 @@ jobs:
     services:
       app:
         image: ghcr.io/${{ github.repository }}:${{ github.sha }}
-        options:
-          init: true
+        options: '--init --read-only'
         env:
           NODE_ENV: test
-          PORT: 8080
         ports:
-          - 8080:8080
+          - 8080
         credentials:
           username: ${{ secrets.GH_USER }}
           password: ${{ secrets.GH_TOKEN }}
@@ -143,7 +141,7 @@ jobs:
       - name: Test
         run: npm run test:smoke
         env:
-          PORT: 8080
+          PORT: ${{ job.services.app.ports['8080'] }}
       - name: Remove CI container image
         uses: bots-house/ghcr-delete-image-action@v1.0.1
         if: always()
