@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { argv, env, exit, on } from 'node:process'
+import process, { argv, env, exit } from 'node:process'
 
 import { createLogger, createServer, getConfig } from './index.js'
 
@@ -9,11 +9,11 @@ try {
   const config = await getConfig(env)
   const logger = createLogger(config)
 
-  on('unhandledRejection', (err) => {
+  process.on('unhandledRejection', (err) => {
     logger.fatal({ err }, 'Unhandled rejection')
   })
 
-  on('uncaughtException', (err) => {
+  process.on('uncaughtException', (err) => {
     logger.fatal({ err }, 'Uncaught exception')
   })
 
