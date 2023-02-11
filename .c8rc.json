@@ -2,6 +2,9 @@
   "exclude": [
     "**/index.js",
     "server.js",
+    "lib/config.js",
+    "lib/lifecycle.js",
+    "lib/logger.js",
     "package/**/*.js",
     "examples/**/*.js",
     "test/fixtures/**/*.js",
