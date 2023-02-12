@@ -1,11 +1,9 @@
-import { env } from 'node:process'
+import { argv } from 'node:process'
 
 export default () => {
-  const ext = isTrue(env.SMOKE_TEST) ? 'test' : 'spec'
+  const ext = argv.includes('--smoke') ? 'test' : 'spec'
   return {
     ignoredByWatcher: ['tmp/**/*'],
     files: [`**/*.${ext}.js`, '!package/**/*']
   }
 }
-
-const isTrue = (value) => ['true', '1'].includes(value?.toLowerCase())
