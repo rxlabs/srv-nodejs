@@ -65,6 +65,7 @@
     "pino-pretty": "^9.1.1"
   },
   "devDependencies": {
+    "@ava/get-port": "^2.0.0",
     "ava": "^5.0.1",
     "c8": "^7.11.0",
     "eslint": "^8.9.0",
