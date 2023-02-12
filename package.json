@@ -7,6 +7,7 @@
   "exports": {
     "import": "./index.js"
   },
+  "bin": "./server.js",
   "module": "index.js",
   "sideEffects": false,
   "keywords": [
