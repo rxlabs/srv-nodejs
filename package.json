@@ -62,7 +62,8 @@
   "dependencies": {
     "@godaddy/terminus": "^4.11.2",
     "pino": "^8.10.0",
-    "pino-pretty": "^9.1.1"
+    "pino-pretty": "^9.1.1",
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@ava/get-port": "^2.0.0",
