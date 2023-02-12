@@ -3,7 +3,7 @@
     "**/index.js",
     "server.js",
     "lib/config.js",
-    "lib/lifecycle.js",
+    "lib/daemon.js",
     "lib/logger.js",
     "package/**/*.js",
     "examples/**/*.js",
