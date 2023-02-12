@@ -119,6 +119,12 @@ and summarized under [Releases].
 
 ## Usage
 
+### Node.js
+
+```
+npx @rxlabs/srv-nodejs --production
+```
+
 ### Docker container
 
 The service is distributed as a Docker container on GitHub Container Registry.
