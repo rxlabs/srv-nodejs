@@ -96,6 +96,8 @@ jobs:
         run: npm install --save ${{ steps.packages.outputs.paths }}
       - name: Run
         run: node index.js
+      - name: Run server
+        run: npx ${{ steps.packages.outputs.paths }} --version
   containerize:
     name: Containerize
     runs-on: ubuntu-latest
