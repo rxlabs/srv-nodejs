@@ -134,7 +134,6 @@ $ docker run --init --read-only --publish 8080:8080 ghcr.io/rxlabs/srv-nodejs
 ## Installation
 
 This app is also published as a package on [npm].
-
 Add this as a dependency to your project using [npm] with
 
 ```
@@ -257,7 +256,7 @@ $ npm run server
 Run a server that will restart on changes with
 
 ```
-$ npm run server:watch
+$ npm run start
 ```
 
 ##### Debugging the server
@@ -265,7 +264,7 @@ $ npm run server:watch
 Start a debuggable server with
 
 ```
-$ npm run server:inspect
+$ npm run start:inspect
 ```
 
 #### Examples
@@ -352,7 +351,7 @@ On GitHub Actions, the tests run against the built container.
 To run smoke tests locally, start a test server with
 
 ```
-$ npm run server:test
+$ npm run start:test
 ```
 
 and run the tests with
