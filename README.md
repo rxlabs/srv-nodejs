@@ -119,8 +119,6 @@ and summarized under [Releases].
 
 ## Usage
 
-### Node.js
-
 ```
 npx @rxlabs/srv-nodejs --production
 ```
@@ -134,58 +132,6 @@ then pull and run the image with
 ```
 $ docker run --init --read-only --publish 8080:8080 ghcr.io/rxlabs/srv-nodejs
 ```
-
-### Configuration
-
-All available configuration options and their defaults are
-defined in `config/default.json`.
-Additionally, all configuration options
-provided by [mlabs-koa][mlabs-koa config] are supported.
-
-#### Config files
-
-Configuration is loaded using [confit]
-and available in `lib/dependencies.js` via `confit.get('foo:bar')`.
-All static configuration is defined under `config`
-and dynamic configuration in `server/config.js`.
-
-The files `config/env.json` and `config/local.json`,
-and the paths `config/env.d` and `config/local.d`
-are excluded from version control.
-The load order is `env.d/*.json`, `env.json`, `local.d/*.json`, and `local.json`.
-Hidden files (dotfiles) are ignored.
-In development, use these for local overrides and secrets.
-In production, mount these inside the container to inject configuration.
-
-#### Secrets
-
-The (whitespace-trimmed) contents of each file in `config/secret.d` is
-added to the config under the property `secret`
-with a key equal to the filename.
-Filenames should not contain a `.` and
-hidden files (dotfiles) are ignored.
-
-For example, to use the secret in `config/secret.d/foobar`,
-reference it from another property like
-
-```json
-{
-  "api": {
-    "key": "config:secret.foobar"
-  }
-}
-```
-
-#### Environment variables
-
-File-based configuration should always be preferred over environment variables,
-however all environment variables are loaded into the config.
-
-The only officially supported environment variables are
-`LOG_ENV`, `LOG_SYSTEM`, `LOG_SERVICE`, and `LOG_LEVEL`.
-
-[confit]: https://github.com/krakenjs/confit
-[mlabs-koa config]: https://github.com/meltwater/mlabs-koa/tree/main/docs#config-and-middleware
 
 ## Installation
 
@@ -213,8 +159,8 @@ $ npm install
 Run each command below in a separate terminal window:
 
 ```
+$ npm start
 $ npm run test:watch
-$ npm run server:watch
 ```
 
 Primary development tasks are defined under `scripts` in `package.json`
@@ -316,48 +262,12 @@ Run a server that will restart on changes with
 $ npm run server:watch
 ```
 
-##### Development logging
-
-Logging output may be configured according to the
-[`log` config](https://github.com/meltwater/mlabs-koa/tree/main/docs#log)
-and [koa `logger` config](https://github.com/meltwater/mlabs-koa/tree/main/docs#logger).
-
-- Use `koa.logger.useDev` to toggle between the simple Koa development logger
-  and the more verbose Koa production logger.
-- Use `log.outputMode` and `log.filter` to control log output.
-  Override using `LOG_OUTPUT_MODE` and `LOG_FILTER`.
-- Define additional log filters in `server/filters.js`.
-
-For example, this config will provide more verbose logging while
-hiding all lifecycle events:
-
-```json
-{
-  "log": {
-    "level": "debug",
-    "filter": "noLifecycle",
-    "outputMode": "long"
-  },
-  "koa": {
-    "logger": {
-      "useDev": false
-    }
-  }
-}
-```
-
 ##### Debugging the server
 
 Start a debuggable server with
 
 ```
 $ npm run server:inspect
-```
-
-Run a debuggable server that will restart on changes with
-
-```
-$ npm run server:inspect:watch
 ```
 
 #### Examples
