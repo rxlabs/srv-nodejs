@@ -61,8 +61,8 @@ Bootstrap a new Node.js app in five minutes or less.
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the main branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:rxlabs/srv-nodejs.git <new-node-service>
-   $ cd <new-node-service>
+   $ git clone --single-branch git@github.com:rxlabs/srv-nodejs.git <new-node-app>
+   $ cd <new-node-app>
    ```
    Optionally, reset to the latest version with
    ```
@@ -80,7 +80,7 @@ Bootstrap a new Node.js app in five minutes or less.
    ```
    $ git diff --cached
    $ git commit -m "Replace rxlabs boilerplate"
-   $ git remote add origin git@github.com:<user>/<new-node-service>.git
+   $ git remote add origin git@github.com:<user>/<new-node-app>.git
    $ git push -u origin main
    ```
 6. Ensure the GitHub action passes,
@@ -125,9 +125,7 @@ npx @rxlabs/srv-nodejs --production
 
 ### Docker container
 
-The service is distributed as a Docker container on GitHub Container Registry.
-To run locally, add configuration to `config/local.json`,
-then pull and run the image with
+The app is distributed as a Docker container on the GitHub Container Registry.
 
 ```
 $ docker run --init --read-only --publish 8080:8080 ghcr.io/rxlabs/srv-nodejs
@@ -347,7 +345,7 @@ $ npm run test:inspect:watch test/server.spec.js
 
 ##### Smoke tests
 
-Smoke tests make network requests directly against the service
+Smoke tests make network requests directly against the app
 (running with `NODE_ENV=test`).
 On GitHub Actions, the tests run against the built container.
 
@@ -391,7 +389,7 @@ To submit a patch:
 
 ## License
 
-This service is licensed under the MIT license.
+This app is licensed under the MIT license.
 
 ## Warranty
 
