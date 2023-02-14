@@ -1,9 +1,21 @@
 #!/usr/bin/env node
 
-import landlubber from 'landlubber'
+import { env } from 'node:process'
 
-import * as todo from './todo.js'
+import landlubber, { defaultMiddleware } from 'landlubber'
 
-const commands = [todo]
+import { createApp, createLogger, getConfig } from '../index.js'
 
-await landlubber(commands).parse()
+import * as health from './health.js'
+
+const commands = [health]
+
+const createAppContext = async (argv) => {
+  const config = await getConfig(env)
+  const logger = createLogger({ config })
+  argv.app = createApp({ config, logger })
+}
+
+const middleware = [...defaultMiddleware, createAppContext]
+
+await landlubber(commands, { middleware }).parse()

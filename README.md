@@ -1,19 +1,27 @@
-# JavaScript Module Package Skeleton
+# Node.js App Skeleton
 
-[![npm](https://img.shields.io/npm/v/@makenew/jsmodule.svg)](https://www.npmjs.com/package/@makenew/jsmodule)
-[![GitHub Actions](https://github.com/makenew/jsmodule/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/jsmodule/actions/workflows/check.yml)
+[![npm](https://img.shields.io/npm/v/@rxlabs/srv-nodejs.svg)](https://www.npmjs.com/package/@rxlabs/srv-nodejs)
+[![GitHub Actions](https://github.com/rxlabs/srv-nodejs/actions/workflows/check.yml/badge.svg)](https://github.com/rxlabs/srv-nodejs/actions/workflows/check.yml)
 
-Package skeleton for a JavaScript module.
+Package skeleton for a Node.js app.
 
 ## Description
 
-Bootstrap a new JavaScript module in five minutes or less.
+Bootstrap a new Node.js app in five minutes or less.
 
 ### Features
 
-- Native [ECMAScript module] compatible with [Node.js].
+- Native [ECMAScript module] for [Node.js].
 - Package management with [npm].
-- Examples with configurable options and arguments powered by [yargs] with [landlubber].
+- [Alpine Linux] based multi-stage [Docker] builds for optimized production images.
+- Images tagged using package version and commit checksum.
+- Images pushed to [GitHub Container Registry].
+- Configurable application lifecycle and middleware suite with [mlabs-koa].
+- Standardized JSON logging with [mlabs-logger].
+- Hierarchical application configuration with [confit].
+- Centralized dependency injection with [Awilix].
+- Health monitoring with [mlabs-health].
+- Examples with configurable options and arguments powered by [examplr].
 - Linting with the [JavaScript Standard Style] using [ESLint].
 - [Prettier] code.
 - Futuristic debuggable unit testing with [AVA].
@@ -25,10 +33,14 @@ Bootstrap a new JavaScript module in five minutes or less.
 - Start coding instantly with [GitHub Codespaces].
 
 [AVA]: https://github.com/avajs/ava
+[Alpine Linux]: https://alpinelinux.org/
+[Awilix]: https://github.com/jeffijoe/awilix
+[Docker]: https://www.docker.com/
 [ECMAScript module]: https://nodejs.org/api/esm.html
 [ESLint]: https://eslint.org/
 [EditorConfig]: https://editorconfig.org/
 [GitHub Actions]: https://github.com/features/actions
+[GitHub Container Registry]: https://github.com/features/packages
 [GitHub Codespaces]: https://github.com/features/packages
 [Istanbul]: https://istanbul.js.org/
 [JavaScript Standard Style]: https://standardjs.com/
@@ -37,17 +49,20 @@ Bootstrap a new JavaScript module in five minutes or less.
 [Prettier]: https://prettier.io/
 [Shields.io]: https://shields.io/
 [c8]: https://github.com/bcoe/c8
-[landlubber]: https://github.com/razor-x/landlubber
+[confit]: https://github.com/krakenjs/confit
+[examplr]: https://github.com/meltwater/node-examplr
+[mlabs-health]: https://github.com/meltwater/mlabs-health
+[mlabs-koa]: https://github.com/meltwater/mlabs-koa
+[mlabs-logger]: https://github.com/meltwater/mlabs-logger
 [npm]: https://www.npmjs.com/
-[yargs]: https://yargs.js.org/
 
 ### Bootstrapping a new project
 
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the main branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:makenew/jsmodule.git <new-node-lib>
-   $ cd <new-node-lib>
+   $ git clone --single-branch git@github.com:rxlabs/srv-nodejs.git <new-node-app>
+   $ cd <new-node-app>
    ```
    Optionally, reset to the latest version with
    ```
@@ -55,7 +70,7 @@ Bootstrap a new JavaScript module in five minutes or less.
    ```
 3. Run
    ```
-   $ ./makenew.sh
+   $ ./rxlabs.sh
    ```
    This will replace the boilerplate, delete itself,
    remove the git remote, remove upstream tags,
@@ -64,8 +79,8 @@ Bootstrap a new JavaScript module in five minutes or less.
 5. Review, commit, and push the changes to GitHub with
    ```
    $ git diff --cached
-   $ git commit -m "Replace makenew boilerplate"
-   $ git remote add origin git@github.com:<user>/<new-node-lib>.git
+   $ git commit -m "Replace rxlabs boilerplate"
+   $ git remote add origin git@github.com:<user>/<new-node-app>.git
    $ git push -u origin main
    ```
 6. Ensure the GitHub action passes,
@@ -84,7 +99,7 @@ you can fetch and merge in changes from this repository.
 Add this as a new remote with
 
 ```
-$ git remote add upstream git@github.com:makenew/jsmodule.git
+$ git remote add upstream git@github.com:rxlabs/srv-nodejs.git
 ```
 
 You can then fetch and merge changes with
@@ -100,14 +115,29 @@ Note that `CHANGELOG.md` is just a template for this skeleton.
 The actual changes for this project are documented in the commit history
 and summarized under [Releases].
 
-[Releases]: https://github.com/makenew/jsmodule/releases
+[Releases]: https://github.com/rxlabs/srv-nodejs/releases
+
+## Usage
+
+```
+npx @rxlabs/srv-nodejs --production
+```
+
+### Docker container
+
+The app is distributed as a Docker container on the GitHub Container Registry.
+
+```
+$ docker run --init --read-only --publish 8080:8080 ghcr.io/rxlabs/srv-nodejs
+```
 
 ## Installation
 
+This app is also published as a package on [npm].
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install @makenew/jsmodule
+$ npm install @rxlabs/srv-nodejs
 ```
 
 [npm]: https://www.npmjs.com/
@@ -117,15 +147,16 @@ $ npm install @makenew/jsmodule
 ### Quickstart
 
 ```
-$ git clone https://github.com/makenew/jsmodule.git
-$ cd jsmodule
+$ git clone https://github.com/rxlabs/srv-nodejs.git
+$ cd srv-nodejs
 $ nvm install
 $ npm install
 ```
 
-Run the command below in a separate terminal window:
+Run each command below in a separate terminal window:
 
 ```
+$ npm start
 $ npm run test:watch
 ```
 
@@ -143,14 +174,14 @@ The [source code] is hosted on GitHub.
 Clone the project with
 
 ```
-$ git clone git@github.com:makenew/jsmodule.git
+$ git clone git@github.com:rxlabs/srv-nodejs.git
 ```
 
-[source code]: https://github.com/makenew/jsmodule
+[source code]: https://github.com/rxlabs/srv-nodejs
 
 ### Requirements
 
-You will need [Node.js] with [npm] and a [Node.js debugging] client.
+You will need [Node.js] with [npm], and a [Node.js debugging] client.
 
 Be sure that all commands run under the correct Node version, e.g.,
 if using [nvm], install the correct version with
@@ -184,7 +215,7 @@ This will push a new git tag which will trigger a GitHub action.
 Publishing may be triggered using a [workflow_dispatch on GitHub Actions].
 
 [npm-version]: https://docs.npmjs.com/cli/version
-[workflow_dispatch on GitHub Actions]: https://github.com/makenew/jsmodule/actions?query=workflow%3Aversion
+[workflow_dispatch on GitHub Actions]: https://github.com/rxlabs/srv-nodejs/actions?query=workflow%3Aversion
 
 ## GitHub Actions
 
@@ -193,13 +224,16 @@ _GitHub Actions should already be configured: this section is for reference only
 The following repository secrets must be set on [GitHub Actions]:
 
 - `NPM_TOKEN`: npm token for installing and publishing packages.
+- `GH_USER`: The GitHub user's username to pull and push containers.
+- `GH_TOKEN`: A personal access token for the user to pull and push containers.
 
 These must be set manually.
 
 ### Secrets for Optional GitHub Actions
 
 The version and format GitHub actions
-require a user with write access to the repository.
+require a user with write access to the repository
+including access to read, write, and delete packages.
 Set these additional secrets to enable the action:
 
 - `GH_TOKEN`: A personal access token for the user.
@@ -211,13 +245,141 @@ Set these additional secrets to enable the action:
 [GitHub Actions]: https://github.com/features/actions
 [GPG private key]: https://github.com/marketplace/actions/import-gpg#prerequisites
 
+#### Server
+
+Run the server locally with
+
+```
+$ npm run server
+```
+
+Run a server that will restart on changes with
+
+```
+$ npm run start
+```
+
+##### Debugging the server
+
+Start a debuggable server with
+
+```
+$ npm run start:inspect
+```
+
+#### Examples
+
+**See the [full documentation on using examples](./examples).**
+
+View all examples with
+
+```
+$ npm run example
+```
+
+#### Linting
+
+Linting is against the [JavaScript Standard Style] and [JSON Lint].
+
+Run all linters with
+
+```
+$ npm run lint
+```
+
+Automatically fix most JavaScript formatting errors with
+
+```
+$ npm run format
+```
+
+[JavaScript Standard Style]: https://standardjs.com/
+[JSON Lint]: https://github.com/zaach/jsonlint
+
+#### Tests
+
+Unit and integration testing is handled by [AVA]
+and coverage is reported by [Istanbul] and uploaded to [Codecov].
+
+- Test files end in `.spec.js`.
+- Unit tests are placed under `lib` alongside the tested module.
+- Integration tests are placed in `test`.
+- Smoke tests are placed in `test` and end in `.test.js`.
+- Static files used in tests are placed in `fixtures`.
+
+Watch and run tests on changes with
+
+```
+$ npm run test:watch
+```
+
+If using [AVA snapshot testing], update snapshots with
+
+```
+$ npm run test:update
+```
+
+Generate a coverage report with
+
+```
+$ npm run report
+```
+
+An HTML version will be saved in `coverage`.
+
+##### Debugging tests
+
+Create a breakpoint by adding the statement `debugger` to the test
+and start a debug session with, e.g.,
+
+```
+$ npm run test:inspect test/server.spec.js
+```
+
+Watch and restart the debugging session on changes with
+
+```
+$ npm run test:inspect:watch test/server.spec.js
+```
+
+##### Smoke tests
+
+Smoke tests make network requests directly against the app
+(running with `NODE_ENV=test`).
+On GitHub Actions, the tests run against the built container.
+
+To run smoke tests locally, start a test server with
+
+```
+$ npm run start:test
+```
+
+and run the tests with
+
+```
+$ npm run test:smoke
+```
+
+or update the test snapshots with
+
+```
+$ npm run test:smoke:update
+```
+
+Refer to the full list of scripts for additional watch and debug modes.
+
+[AVA]: https://github.com/avajs/ava
+[AVA snapshot testing]: https://github.com/avajs/ava#snapshot-testing
+[Codecov]: https://codecov.io/
+[Istanbul]: https://istanbul.js.org/
+
 ## Contributing
 
 Please submit and comment on bug reports and feature requests.
 
 To submit a patch:
 
-1. Fork it (https://github.com/makenew/jsmodule/fork).
+1. Fork it (https://github.com/rxlabs/srv-nodejs/fork).
 2. Create your feature branch (`git checkout -b my-new-feature`).
 3. Make changes.
 4. Commit your changes (`git commit -am 'Add some feature'`).
@@ -226,7 +388,7 @@ To submit a patch:
 
 ## License
 
-This npm package is licensed under the MIT license.
+This app is licensed under the MIT license.
 
 ## Warranty
 

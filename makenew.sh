@@ -36,7 +36,7 @@ stage_env () {
   git branch --unset-upstream
   git remote rm origin
   echo
-  git rm -f makenew.sh
+  git rm -f rxlabs.sh
   echo
   echo 'Staging changes.'
   git add --all
@@ -45,7 +45,7 @@ stage_env () {
   echo
 }
 
-makenew () {
+rxlabs () {
   echo 'Answer all prompts.'
   echo 'There are no defaults.'
   echo 'Example values are shown in parentheses.'
@@ -57,23 +57,24 @@ makenew () {
   read -p '> GitHub user or organization name (my-user): ' mk_user
   read -p '> GitHub repository name (my-repo): ' mk_repo
 
-  sed_delete README.md '10,103d'
+  sed_delete README.md '10,118d'
   sed_insert README.md '10i' 'TODO'
 
-  find_replace "s/^  \"version\": \".*\"/  \"version\": \"0.0.0\"/g"
-  find_replace "s/JavaScript Module Package Skeleton/${mk_title}/g"
-  find_replace "s/Package skeleton for a JavaScript module\./${mk_description}/g"
+  find_replace "s/\"version\": \".*\"/\"version\": \"0.0.0\"/g"
+  find_replace "s/0\.0\.0\.\.\./0.0.1.../g"
+  find_replace "s/Node.js App Skeleton/${mk_title}/g"
+  find_replace "s/Package skeleton for a Node.js microservice\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
-  find_replace "s|@makenew/jsmodule|${mk_slug}|g"
-  find_replace "s|makenew/jsmodule|${mk_user}/${mk_repo}|g"
-  find_replace "s|jsmodule|${mk_repo}|g"
+  find_replace "s|@rxlabs/srv-nodejs|${mk_slug}|g"
+  find_replace "s|rxlabs/srv-nodejs|${mk_user}/${mk_repo}|g"
+  find_replace "s|srv-nodejs|${mk_repo}|g"
 
   echo
   echo 'Replacing boilerplate.'
 }
 
 check_env 'git read sed xargs'
-makenew
+rxlabs
 stage_env
 exit

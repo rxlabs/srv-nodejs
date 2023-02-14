@@ -1,20 +1,21 @@
 {
-  "name": "@makenew/jsmodule",
-  "version": "10.2.0",
-  "description": "Package skeleton for a JavaScript module.",
+  "name": "@rxlabs/srv-nodejs",
+  "version": "0.0.0",
+  "description": "Package skeleton for a Node.js server.",
   "type": "module",
   "main": "index.js",
   "exports": {
     "import": "./index.js"
   },
+  "bin": "./server.js",
   "module": "index.js",
   "sideEffects": false,
   "keywords": [
     "node"
   ],
-  "homepage": "https://github.com/makenew/jsmodule",
-  "bugs": "https://github.com/makenew/jsmodule/issues",
-  "repository": "makenew/jsmodule",
+  "homepage": "https://github.com/rxlabs/srv-nodejs",
+  "bugs": "https://github.com/rxlabs/srv-nodejs/issues",
+  "repository": "rxlabs/srv-nodejs",
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
@@ -22,8 +23,11 @@
   },
   "files": [
     "index.js",
+    "server.js",
     "lib",
-    "!**/*.spec.js"
+    "!test",
+    "!**/*.spec.js",
+    "!**/*.test.js"
   ],
   "scripts": {
     "test": "c8 ava",
@@ -31,26 +35,39 @@
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
     "test:debug": "ava debug --break",
+    "test:smoke": "ava -- --smoke",
     "lint": "eslint --ignore-path .gitignore --ext .js,.cjs,.mjs .",
     "prelint": "prettier --check --ignore-path .gitignore .",
     "postversion": "git push --follow-tags",
     "example": "node examples",
     "example:inspect": "node --inspect examples",
+    "start": "nodemon server.js",
+    "start:inspect": "nodemon --inspect server.js",
+    "start:test": "node server.js --test",
+    "start:production": "node server.js --production",
     "format": "eslint --ignore-path .gitignore --fix --ext .js,.cjs,.mjs .",
     "preformat": "prettier --write --ignore-path .gitignore .",
     "report": "c8 report"
   },
   "engines": {
-    "node": ">=16.13.0",
+    "node": ">=18.12.0",
     "npm": ">= 8.1.0"
   },
+  "dependencies": {
+    "@godaddy/terminus": "^4.11.2",
+    "pino": "^8.10.0",
+    "pino-pretty": "^9.1.1",
+    "yargs": "^17.6.2"
+  },
   "devDependencies": {
+    "@ava/get-port": "^2.0.0",
     "ava": "^5.0.1",
     "c8": "^7.11.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-config-standard": "^17.0.0",
     "landlubber": "^1.0.0",
+    "nodemon": "^2.0.20",
     "prettier": "^2.3.0"
   }
 }
