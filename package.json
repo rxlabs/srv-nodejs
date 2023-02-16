@@ -34,10 +34,10 @@
     "!**/*.test.ts"
   ],
   "scripts": {
-    "start": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' server.js",
-    "start:inspect": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' --inspect server.js",
-    "start:test": "node server.js --test",
-    "start:production": "node server.js --production",
+    "start": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' src/server.ts",
+    "start:inspect": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' --inspect src/server.ts",
+    "start:test": "tsx src/server.js --test",
+    "start:production": "node src/server.js --production",
     "build": "npm run build:ts",
     "postbuild": "node ./index.js",
     "build:ts": "tsc --project tsconfig.build.json",
