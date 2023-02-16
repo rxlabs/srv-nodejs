@@ -1,10 +1,10 @@
 {
   "exclude": [
     "**/index.ts",
-    "server.ts",
-    "lib/config.ts",
-    "lib/daemon.ts",
-    "lib/logger.ts",
+    "src/server.ts",
+    "src/lib/config.ts",
+    "src/lib/daemon.ts",
+    "src/lib/logger.ts",
     "package/**/*.ts",
     "examples/**/*.ts",
     "test/fixtures/**/*.ts",
