@@ -141,6 +141,8 @@ $ npx @makenew/tsmodule --production
 Then install the production dependencies and start the server with
 
 ```
+$ npm ci
+$ npm run:build
 $ npm ci --omit=dev
 $ npm start:production
 ```
