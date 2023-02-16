@@ -1,52 +1,63 @@
-# TypeScript Module Package Skeleton
+# Node.js Server Skeleton
 
 [![npm](https://img.shields.io/npm/v/@makenew/tsmodule.svg)](https://www.npmjs.com/package/@makenew/tsmodule)
 [![GitHub Actions](https://github.com/makenew/tsmodule/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/tsmodule/actions/workflows/check.yml)
 
-Package skeleton for a TypeScript module.
+Package skeleton for a Node.js server.
 
 ## Description
 
-Bootstrap a new TypeScript module in five minutes or less.
+Bootstrap a new Node.js server in five minutes or less.
 
 ### Features
 
-- Strongly typed JavaScript with [TypeScript].
-- [Node.js]'s [npm] package structure.
+- Framework agnostic so you can bring one you like.
+- Native [ECMAScript module] compatible with [Node.js].
 - Package management with [npm].
+- [Alpine Linux] based multi-stage [Docker] build for optimized production images.
+- Images tagged on the [GitHub Container Registry] using version and commit checksum.
+- Super fast, all natural JSON logging with [Pino].
+- Graceful shutdown and health checks with [Terminus].
 - Examples with configurable options and arguments powered by [yargs] with [landlubber].
 - Linting with the [JavaScript Standard Style] using [ESLint].
 - [Prettier] code.
 - Futuristic debuggable unit testing with [AVA].
 - Code coverage reporting with [Istanbul] and [c8].
-- Continuous testing and package publishing with [GitHub Actions].
+- Continuous testing, deployment, and package publishing with [GitHub Actions].
 - [Keep a CHANGELOG].
 - Consistent coding with [EditorConfig].
 - Badges from [Shields.io].
+- Start coding instantly with [GitHub Codespaces].
 
 [AVA]: https://github.com/avajs/ava
+[Alpine Linux]: https://alpinelinux.org/
+[Docker]: https://www.docker.com/
+[ECMAScript module]: https://nodejs.org/api/esm.html
 [ESLint]: https://eslint.org/
 [EditorConfig]: https://editorconfig.org/
 [GitHub Actions]: https://github.com/features/actions
+[GitHub Codespaces]: https://github.com/features/packages
+[GitHub Container Registry]: https://github.com/features/packages
 [Istanbul]: https://istanbul.js.org/
 [JavaScript Standard Style]: https://standardjs.com/
 [Keep a CHANGELOG]: https://keepachangelog.com/
-[landlubber]: https://github.com/razor-x/landlubber
 [Node.js]: https://nodejs.org/
+[Pino]: https://getpino.io/
 [Prettier]: https://prettier.io/
 [Shields.io]: https://shields.io/
+[Terminus]: https://github.com/godaddy/terminus
 [c8]: https://github.com/bcoe/c8
-[yargs]: https://yargs.js.org/
+[landlubber]: https://github.com/razor-x/landlubber
 [npm]: https://www.npmjs.com/
-[TypeScript]: https://www.typescriptlang.org/
+[yargs]: https://yargs.js.org/
 
 ### Bootstrapping a new project
 
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the main branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:makenew/tsmodule.git <new-node-lib>
-   $ cd <new-node-lib>
+   $ git clone --single-branch git@github.com:makenew/tsmodule.git <new-node-app>
+   $ cd <new-node-app>
    ```
    Optionally, reset to the latest version with
    ```
@@ -64,7 +75,7 @@ Bootstrap a new TypeScript module in five minutes or less.
    ```
    $ git diff --cached
    $ git commit -m "Replace makenew boilerplate"
-   $ git remote add origin git@github.com:<user>/<new-node-lib>.git
+   $ git remote add origin git@github.com:<user>/<new-node-app>.git
    $ git push -u origin main
    ```
 6. Ensure the GitHub action passes,
@@ -101,8 +112,44 @@ and summarized under [Releases].
 
 [Releases]: https://github.com/makenew/tsmodule/releases
 
+## Usage
+
+### From Docker
+
+The application is distributed as a [Docker container].
+Start the server inside a container with
+
+```
+$ docker run --init --read-only --publish 8080:8080 ghcr.io/makenew/tsmodule
+```
+
+[Docker container]: https://github.com/makenew/tsmodule/pkgs/container/tsmodule
+
+### From npx
+
+The server is included in the published [npm package] and may be run using npx with
+
+```
+$ npx @makenew/tsmodule --production
+```
+
+[npm package]: https://www.npmjs.com/package/@makenew/tsmodule
+
+### From source
+
+[Download a release][Releases] and extract the source code.
+Then install the production dependencies and start the server with
+
+```
+$ npm ci --omit=dev
+$ npm start:production
+```
+
+[Releases]: https://github.com/makenew/tsmodule/releases
+
 ## Installation
 
+This app is also published as a package on [npm].
 Add this as a dependency to your project using [npm] with
 
 ```
@@ -122,9 +169,10 @@ $ nvm install
 $ npm install
 ```
 
-Run the command below in a separate terminal window:
+Run each command below in a separate terminal window:
 
 ```
+$ npm start
 $ npm run test:watch
 ```
 
@@ -192,13 +240,16 @@ _GitHub Actions should already be configured: this section is for reference only
 The following repository secrets must be set on [GitHub Actions]:
 
 - `NPM_TOKEN`: npm token for installing and publishing packages.
+- `GH_USER`: The GitHub user's username to pull and push containers.
+- `GH_TOKEN`: A personal access token for the user to pull and push containers.
 
 These must be set manually.
 
 ### Secrets for Optional GitHub Actions
 
 The version and format GitHub actions
-require a user with write access to the repository.
+require a user with write access to the repository
+including access to read, write, and delete packages.
 Set these additional secrets to enable the action:
 
 - `GH_TOKEN`: A personal access token for the user.
@@ -225,7 +276,7 @@ To submit a patch:
 
 ## License
 
-This npm package is licensed under the MIT license.
+This app is licensed under the MIT license.
 
 ## Warranty
 

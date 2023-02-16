@@ -57,12 +57,13 @@ makenew () {
   read -p '> GitHub user or organization name (my-user): ' mk_user
   read -p '> GitHub repository name (my-repo): ' mk_repo
 
-  sed_delete README.md '10,102d'
+  sed_delete README.md '10,113d'
   sed_insert README.md '10i' 'TODO'
 
-  find_replace "s/^  \"version\": \".*\"/  \"version\": \"0.0.0\"/g"
-  find_replace "s/TypeScript Module Package Skeleton/${mk_title}/g"
-  find_replace "s/Package skeleton for a TypeScript module\./${mk_description}/g"
+  find_replace "s/\"version\": \".*\"/\"version\": \"0.0.0\"/g"
+  find_replace "s/0\.0\.0\.\.\./0.0.1.../g"
+  find_replace "s/Node\.js Server Skeleton/${mk_title}/g"
+  find_replace "s/Package skeleton for a Node\.js server\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
   find_replace "s|@makenew/tsmodule|${mk_slug}|g"
