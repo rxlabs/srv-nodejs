@@ -1,8 +1,14 @@
 {
   "exclude": [
     "**/index.ts",
+    "server.ts",
+    "lib/config.ts",
+    "lib/daemon.ts",
+    "lib/logger.ts",
     "package/**/*.ts",
     "examples/**/*.ts",
+    "test/fixtures/**/*.ts",
+    "**/*.test.ts",
     "**/*.spec.ts",
     "ava.config.js"
   ],
