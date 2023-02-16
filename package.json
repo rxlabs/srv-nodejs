@@ -8,7 +8,8 @@
   "exports": {
     "import": "./index.js"
   },
-  "module": "index.ts",
+  "bin": "./server.js",
+  "module": "index.js",
   "sideEffects": false,
   "keywords": [
     "node"
@@ -25,12 +26,18 @@
     "index.js",
     "index.js.map",
     "index.d.ts",
+    "server.js",
     "lib",
     "src",
     "!test",
-    "!**/*.spec.ts"
+    "!**/*.spec.ts",
+    "!**/*.test.ts"
   ],
   "scripts": {
+    "start": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' server.js",
+    "start:inspect": "tsx watch --ignore './tmp/**/*' --ignore './examples/**/*' --inspect server.js",
+    "start:test": "node server.js --test",
+    "start:production": "node server.js --production",
     "build": "npm run build:ts",
     "postbuild": "node ./index.js",
     "build:ts": "tsc --project tsconfig.build.json",
@@ -42,6 +49,7 @@
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
     "test:debug": "ava debug --break",
+    "test:smoke": "ava -- --smoke",
     "lint": "eslint --ignore-path .gitignore --ext .js,.cjs,.mjs,.ts,.tsx .",
     "prelint": "prettier --check --ignore-path .gitignore .",
     "postversion": "git push --follow-tags",
@@ -52,10 +60,17 @@
     "report": "c8 report"
   },
   "engines": {
-    "node": ">=16.13.0",
+    "node": ">=18.12.0",
     "npm": ">= 8.1.0"
   },
+  "dependencies": {
+    "@godaddy/terminus": "^4.11.2",
+    "pino": "^8.10.0",
+    "pino-pretty": "^9.1.1",
+    "yargs": "^17.6.2"
+  },
   "devDependencies": {
+    "@ava/get-port": "^2.0.0",
     "@types/node": "^18.11.18",
     "ava": "^5.0.1",
     "c8": "^7.11.0",
