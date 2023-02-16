@@ -43,4 +43,4 @@ CMD ["server.js"]
 
 USER node
 
-LABEL org.opencontainers.image.source https://github.com/makenew/nodejs-server
+LABEL org.opencontainers.image.source https://github.com/makenew/tsmodule
