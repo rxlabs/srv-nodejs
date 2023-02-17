@@ -72,6 +72,7 @@
   "devDependencies": {
     "@ava/get-port": "^2.0.0",
     "@types/node": "^18.11.18",
+    "@types/stoppable": "^1.1.1",
     "ava": "^5.0.1",
     "c8": "^7.11.0",
     "del-cli": "^5.0.0",
