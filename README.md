@@ -227,10 +227,10 @@ $ npm install
 
 ### Smoke tests
 
-Any test file ending in `.test.js` is a smoke test
-and runs separately from tests ending in `.spec.js`.
+Any test file ending in `.test.ts` is a smoke test
+and runs separately from tests ending in `.spec.ys`.
 A smoke test verifies the server passes certain external checks.
-During the GitHub Actions check, the Docker container is build and started,
+During the GitHub Actions check, the Docker container is built and started,
 then the smoke tests make requests to the server in a separate process.
 
 To run the smoke tests locally, first start the test server with
