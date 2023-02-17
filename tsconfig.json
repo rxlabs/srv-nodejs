@@ -24,6 +24,6 @@
       "lib/*": ["./src/lib/*"]
     }
   },
-  "files": ["src/index.ts"],
+  "files": ["src/server.ts", "src/index.ts"],
   "include": ["src/**/*", "test/**/*", "examples/**/*"]
 }
