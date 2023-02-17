@@ -228,7 +228,7 @@ $ npm install
 ### Smoke tests
 
 Any test file ending in `.test.ts` is a smoke test
-and runs separately from tests ending in `.spec.ys`.
+and runs separately from tests ending in `.spec.ts`.
 A smoke test verifies the server passes certain external checks.
 During the GitHub Actions check, the Docker container is built and started,
 then the smoke tests make requests to the server in a separate process.
