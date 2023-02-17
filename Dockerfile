@@ -16,6 +16,7 @@ COPY package.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
 COPY . ./
 RUN npm build
+RUN chmod u+x ./server.js
 RUN npm pack
 RUN tar -xzf *.tgz
 
