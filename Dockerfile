@@ -27,6 +27,7 @@ ENV NODE_ENV=production
 COPY package-lock.json ./
 COPY package.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
+RUN rm package.json package-lock.json
 
 FROM base as app
 
@@ -43,5 +44,3 @@ ENTRYPOINT ["node"]
 CMD ["server.js"]
 
 USER node
-
-LABEL org.opencontainers.image.source https://github.com/makenew/tsmodule
