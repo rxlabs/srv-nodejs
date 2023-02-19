@@ -1,17 +1,18 @@
-# Node.js Server Skeleton
+# TypeScript Node.js Server Skeleton
 
 [![npm](https://img.shields.io/npm/v/@makenew/tsmodule.svg)](https://www.npmjs.com/package/@makenew/tsmodule)
 [![GitHub Actions](https://github.com/makenew/tsmodule/actions/workflows/check.yml/badge.svg)](https://github.com/makenew/tsmodule/actions/workflows/check.yml)
 
-Package skeleton for a Node.js server.
+Package skeleton for a TypeScript Node.js server.
 
 ## Description
 
-Bootstrap a new Node.js server in five minutes or less.
+Bootstrap a new TypeScript Node.js server in five minutes or less.
 
 ### Features
 
 - Framework agnostic so you can bring one you like.
+- Strongly typed JavaScript with [TypeScript].
 - Native [ECMAScript module] compatible with [Node.js].
 - Package management with [npm].
 - [Alpine Linux] based multi-stage [Docker] build for optimized production images.
@@ -46,6 +47,7 @@ Bootstrap a new Node.js server in five minutes or less.
 [Prettier]: https://prettier.io/
 [Shields.io]: https://shields.io/
 [Terminus]: https://github.com/godaddy/terminus
+[TypeScript]: https://www.typescriptlang.org/
 [c8]: https://github.com/bcoe/c8
 [landlubber]: https://github.com/razor-x/landlubber
 [npm]: https://www.npmjs.com/
