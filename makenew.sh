@@ -66,9 +66,9 @@ makenew () {
   find_replace "s/Package skeleton for a TypeScript Node\.js server\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
-  find_replace "s|@makenew/tsmodule|${mk_slug}|g"
-  find_replace "s|makenew/tsmodule|${mk_user}/${mk_repo}|g"
-  find_replace "s|tsmodule|${mk_repo}|g"
+  find_replace "s|@makenew/nodets-server|${mk_slug}|g"
+  find_replace "s|makenew/nodets-server|${mk_user}/${mk_repo}|g"
+  find_replace "s|nodets-server|${mk_repo}|g"
 
   echo
   echo 'Replacing boilerplate.'

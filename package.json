@@ -1,5 +1,5 @@
 {
-  "name": "@makenew/tsmodule",
+  "name": "@makenew/nodets-server",
   "version": "1.0.2",
   "description": "Package skeleton for a TypeScript Node.js server.",
   "type": "module",
@@ -14,9 +14,9 @@
   "keywords": [
     "node"
   ],
-  "homepage": "https://github.com/makenew/tsmodule",
-  "bugs": "https://github.com/makenew/tsmodule/issues",
-  "repository": "makenew/tsmodule",
+  "homepage": "https://github.com/makenew/nodets-server",
+  "bugs": "https://github.com/makenew/nodets-server/issues",
+  "repository": "makenew/nodets-server",
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
